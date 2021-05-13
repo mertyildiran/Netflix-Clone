@@ -13,3 +13,4 @@ logs
 npm-debug.log*
 
 .firebase
+.vscode

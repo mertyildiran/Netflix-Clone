@@ -74,13 +74,13 @@ export default class DisplayMovieRow extends Component {
         >
           {this.props.movies.map((movie, idx) => {
             let movieImageUrl =
-              'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
+            process.env.IMAGE_BACKDROP_PATH + movie.backdrop_path;
             if (
               this.props.url ===
               `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
             ) {
               movieImageUrl =
-                'https://image.tmdb.org/t/p/original/' + movie.poster_path;
+                process.env.IMAGE_POSTER_PATH + movie.poster_path;
             }
             if (movie.poster_path && movie.backdrop_path !== null) {
               return (

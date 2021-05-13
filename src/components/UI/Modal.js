@@ -6,7 +6,7 @@ import Backdrop from './Backdrop';
 export default function Modal(props) {
   const backgroundStyle = {
     backgroundSize: 'cover',
-    backgroundImage: `url(https://image.tmdb.org/t/p/original/${
+    backgroundImage: `url(${process.env.IMAGE_POSTER_PATH}${
       props.movie.backdrop_path || props.movie.poster_path
     })`,
   };

@@ -7,6 +7,12 @@ const footer = () => (
       <a className="footer__copyright--link" href="http://andresio.com">
         {' '}
         Andres Alcocer
+        {' '}
+      </a>
+      and mocked with 🐈 by {' '}
+      <a className="footer__copyright--link" href="https://mockintosh.io">
+        {' '}
+        Mockintosh
       </a>
     </div>
   </footer>

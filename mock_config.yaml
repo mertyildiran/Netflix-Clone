@@ -1,0 +1,38 @@
+templatingEngine: "Jinja2"
+services:
+  - port: 8081
+    name: "Movie Database API"
+    endpoints:
+      - path: "/3/discover/movie"
+        response:
+          status: 200
+          headers:
+            Content-Type: application/json; charset=UTF-8
+          body: "@resources/discover_movie.json.j2"
+      - path: "/3/trending/all/week"
+        response:
+          status: 200
+          headers:
+            Content-Type: application/json; charset=UTF-8
+          body: "@resources/trending_all_week_or_top_rated.json.j2"
+      - path: "/3/movie/top_rated"
+        response:
+          status: 200
+          headers:
+            Content-Type: application/json; charset=UTF-8
+          body: "@resources/trending_all_week_or_top_rated.json.j2"
+      - path: "/3/discover/tv"
+        response:
+          status: 200
+          headers:
+            Content-Type: application/json; charset=UTF-8
+          body: "@resources/discover_tv.json.j2"
+      - path: "/3/tv/{{id}}"
+        response:
+          status: 200
+          headers:
+            Content-Type: application/json; charset=UTF-8
+          body: "@resources/tv.json.j2"
+  - port: 8082
+    name: "Image Service"
+    fallbackTo: "https://loremflickr.com/"

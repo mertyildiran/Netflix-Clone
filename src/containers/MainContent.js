@@ -24,7 +24,7 @@ class MainContent extends Component {
     selectedMovie: {},
     movieInfo: [
       {
-        title: 'Netflix Originals',
+        title: 'Catflix Originals',
         url: `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`,
         movies: [],
       },
@@ -72,7 +72,7 @@ class MainContent extends Component {
     await this.props.fetchHorrorMovies();
 
     const newMoviesArray = this.state.movieInfo.map((movie) => {
-      if (movie.title === 'Netflix Originals') {
+      if (movie.title === 'Catflix Originals') {
         movie.movies.push(...this.props.netflixOriginals.data)
       }
       if (movie.title === 'Trending Now') {
@@ -102,7 +102,7 @@ class MainContent extends Component {
     /** Movie Id for the Narcos series  */
     const movieId = 63351;
     /** Make Api call to retrieve the details for a single movie  */
-    const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${process.env.API_KEY}`;
+    const url = `${process.env.API_HOST}/3/tv/${movieId}?api_key=${process.env.API_KEY}`;
     axios
       .get(url)
       .then(res => {

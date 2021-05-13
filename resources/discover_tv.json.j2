@@ -1,0 +1,22 @@
+{
+    "page": 1,
+    "results": [{% for n in range(range(100) | random) %}
+        {
+            "backdrop_path": "/500/281/cat?random={{ fake.random_int(min=0, max=1000, step=1) }}",
+            "first_air_date": "{{ date.date('%Y-%m-%d') }}",
+            "genre_ids": {{ ([request.queryString.with_networks | int] + fake.random_choices(elements=[12, 28, 53, 135, 956, 2786, 10752])) | unique | list | tojson }},
+            "id": {{ fake.random_int(min=10000, max=50000, step=1) }},
+            "original_language": "{{ fake.language_code() }}",
+            "original_title": "{{ fake.text(max_nb_chars=20)[:-1] | title }}",
+            "overview": "{{ fake.sentence(nb_words=10) }}",
+            "popularity": {{ random.float('0.0', '10000.0', 3) }},
+            "poster_path": "/661/981/cat?random={{ fake.random_int(min=0, max=1000, step=1) }}",
+            "title": "{{ fake.text(max_nb_chars=20)[:-1] | title }}",
+            "video": {{ fake.boolean(chance_of_getting_true=5) | lower }},
+            "vote_average": {{ random.float('0.0', '10.0', 1) }},
+            "vote_count": {{ fake.random_int(min=0, max=1000, step=1) }}
+        }{% if not loop.last %},{% endif %}
+    {% endfor %}],
+    "total_pages": {{ fake.random_int(min=500, max=2000, step=500) }},
+    "total_results": {{ fake.random_int(min=10000, max=100000, step=500) }}
+}

@@ -43,11 +43,11 @@ export default class Search extends Component {
     /** Make the appropriate API call to get the details for a single movie or tv show. */
     if (movie.media_type === "movie") {
       const movieId = movie.id;
-      url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`;
+      url = `${process.env.API_HOST}/3/movie/${movieId}?api_key=${process.env.API_KEY}`;
 
     } else if (movie.media_type === "tv") {
       const tvId = movie.id
-      url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
+      url = `${process.env.API_HOST}/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
     }
 
     axios.get(url)
@@ -73,7 +73,7 @@ export default class Search extends Component {
                   let movieRows = []
                   let movieImageUrl;
                   if (movie.poster_path !== null && movie.media_type !== "person") {
-                    movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+                    movieImageUrl = movie.poster_path;
 
                     /** Set the movie object to our Movie component */
                     const movieComponent = <Movie

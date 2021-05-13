@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 import axios from '../axios-movies';
 import SearchLogo from '../static/images/search-icon.svg';
-import NetflixLogo from '../static/images/Netflix_Logo_RGB.png';
+import NetflixLogo from '../static/images/catflix.png';
 import BellLogo from '../static/images/bell-logo.svg';
 import DropdownArrow from '../static/images/drop-down-arrow.svg';
 import DropdownContent from "../components/DropdownContent";

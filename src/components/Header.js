@@ -6,7 +6,7 @@ import AddLogo from '../static/images/add.svg';
 export default function Header(props) {
   const backgroundStyle = {
     backgroundSize: 'cover',
-    backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.movie.backdrop_path})`,
+    backgroundImage: `url(${process.env.IMAGE_BACKDROP_PATH}${props.movie.backdrop_path})`,
     backgroundPosition: 'center',
   };
 

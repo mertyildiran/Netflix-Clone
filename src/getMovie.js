@@ -4,12 +4,12 @@ import React from 'react';
 export function getMovieRows(movies, url) {
   const movieRow = movies.map((movie) => {
     let movieImageUrl =
-      'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
+      process.env.IMAGE_BACKDROP_PATH + movie.backdrop_path;
     if (
       url === `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
     ) {
       movieImageUrl =
-        'https://image.tmdb.org/t/p/original/' + movie.poster_path;
+      process.env.IMAGE_POSTER_PATH + movie.poster_path;
     }
 
     if (movie.poster_path && movie.backdrop_path !== null) {
