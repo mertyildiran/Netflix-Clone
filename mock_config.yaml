@@ -1,4 +1,7 @@
 templatingEngine: "Jinja2"
+management:
+  port: 8000
+  ssl: true
 services:
   - port: 8081
     name: "Movie Database API"
